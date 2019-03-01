@@ -10,7 +10,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="97.5dp"
-        android:id="@+id/lblyear"
+        android:id="@+id/lblDay"
         android:gravity="center"
         android:layout_marginBottom="2.5dp" />
 </LinearLayout>

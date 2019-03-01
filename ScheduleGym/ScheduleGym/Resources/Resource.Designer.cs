@@ -2408,7 +2408,7 @@ namespace ScheduleGym
 			public const int largeLabel = 2131230840;
 			
 			// aapt resource value: 0x7f080085
-			public const int lblyear = 2131230853;
+			public const int lblDay = 2131230853;
 			
 			// aapt resource value: 0x7f080034
 			public const int left = 2131230772;

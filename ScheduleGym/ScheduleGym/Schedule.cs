@@ -87,6 +87,18 @@ namespace ScheduleGym
             db.Delete(Schedule);
         }
 
+        public Schedule Find(System.Linq.Expressions.Expression<Func<Schedule, bool>> predicate)
+        {
+            try
+            {
+                return db.Find(predicate);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public bool HaveAnySchedule()
         {
             return db.Table<Schedule>().Any();

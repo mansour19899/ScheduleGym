@@ -17,6 +17,7 @@ namespace ScheduleGym
     {
         ScheduleRepository db;
         private ListView ListView;
+        int Program = 1;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             
@@ -30,11 +31,37 @@ namespace ScheduleGym
                 db.InsertSchedule(new Schedule() { Id = 1, Exercise_FK = 0, Exercise = "", Time = "", Set = 0, Count = 0, Program = 0, Day = -3, Enable = true });
             }
 
-            ListView = FindViewById<ListView>(Resource.Id.listViewDays);
+            UpdateList();
+            ListView.ItemClick += ListView_ItemClick;
 
-            var t = db.GetAllSchedule();
-            int x = 0;
             // Create your application here
+        }
+
+        private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            int id = (int)e.Id;
+           //// var intent = new Intent(this, typeof(ShowInformationPerson));
+           // intent.PutExtra("personId", id);
+           // StartActivity(intent);
+        }
+
+        public void UpdateList()
+        {
+            int take = 0; 
+            try
+            {
+                 take = db.Find(p => p.Enable == true & p.Day < 0).Day * -1;
+             
+            }
+            catch (Exception)
+            {
+
+                 take=0;
+            }
+
+            Day rrr = new Day(take);
+            ListView = FindViewById<ListView>(Resource.Id.listViewDays);
+            ListView.Adapter = new DayAdapter(this, rrr.days());
         }
     }
 }

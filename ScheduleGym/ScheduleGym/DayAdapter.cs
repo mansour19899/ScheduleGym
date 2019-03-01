@@ -45,8 +45,8 @@ namespace ScheduleGym
 
             Day day = _list[position];
 
-            view.FindViewById<TextView>(Resource.Id.lblyear).Text = day.DayName;
-
+            view.FindViewById<TextView>(Resource.Id.lblDay).Text = day.DayName;
+            
 
             return view;
         }

@@ -16,6 +16,7 @@ namespace ScheduleGym
     public class DaysActivity : Activity
     {
         ScheduleRepository db;
+        private ListView ListView;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             
@@ -29,7 +30,7 @@ namespace ScheduleGym
                 db.InsertSchedule(new Schedule() { Id = 1, Exercise_FK = 0, Exercise = "", Time = "", Set = 0, Count = 0, Program = 0, Day = -3, Enable = true });
             }
 
-
+            ListView = FindViewById<ListView>(Resource.Id.listViewDays);
 
             var t = db.GetAllSchedule();
             int x = 0;

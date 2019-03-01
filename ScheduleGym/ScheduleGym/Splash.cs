@@ -26,13 +26,13 @@ namespace ScheduleGym
             if(db.HaveAnyExercise())
             {
                 Toast.MakeText(this, "Hello ", ToastLength.Long).Show();
-                StartActivity(typeof(MainActivity));
+                StartActivity(typeof(DaysActivity));
             }
             else
             {
                 AddExercise();
                 Toast.MakeText(this, "ADD ", ToastLength.Long).Show();
-                StartActivity(typeof(MainActivity));
+                StartActivity(typeof(DaysActivity));
 
             }
             // Create your application here

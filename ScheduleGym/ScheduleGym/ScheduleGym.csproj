@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Day.cs" />
     <Compile Include="DayAdapter.cs" />
+    <Compile Include="DaysActivity.cs" />
     <Compile Include="Exercise.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="RegisterDay.cs" />
@@ -116,6 +117,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Splash.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Dayslayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

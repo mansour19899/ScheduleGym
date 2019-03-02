@@ -61,16 +61,22 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\ExersiceGroupAdapter.cs" />
     <Compile Include="Day.cs" />
-    <Compile Include="DayAdapter.cs" />
+    <Compile Include="Adapter\DayAdapter.cs" />
     <Compile Include="DaysActivity.cs" />
     <Compile Include="Exercise.cs" />
+    <Compile Include="ExerciseActivity.cs" />
+    <Compile Include="ExersiceGroupActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PerDayActivity.cs" />
     <Compile Include="RegisterDay.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="Adapter\ScheduleAdapter.cs" />
     <Compile Include="Splash.cs" />
+    <Compile Include="StatusDayActivity.cs" />
     <Compile Include="Weight.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +126,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Dayslayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\PerDaylayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListItemSchedule.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Statuslayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ExersiceGrouplayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListItemExersiceGroup.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Exerciselayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -74,6 +74,30 @@ namespace ScheduleGym
             db.Delete(exercise);
         }
 
+        public Exercise Find(System.Linq.Expressions.Expression<Func<Exercise, bool>> predicate)
+        {
+            try
+            {
+                return db.Find(predicate);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public IQueryable<Exercise> Where(System.Linq.Expressions.Expression<Func<Exercise, bool>> predicate)
+        {
+            try
+            {
+                return db.Table<Exercise>().Where(predicate).AsQueryable();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public bool HaveAnyExercise()
         {
             return db.Table<Exercise>().Any();

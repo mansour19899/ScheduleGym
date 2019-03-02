@@ -18,7 +18,7 @@ namespace ScheduleGym
         ScheduleRepository db;
         private ListView ListView;
         int Program = 1;
-        protected override void OnCreate(Bundle savedInstanceState)
+           protected override void OnCreate(Bundle savedInstanceState)
         {
             
             base.OnCreate(savedInstanceState);
@@ -28,9 +28,16 @@ namespace ScheduleGym
             db = new ScheduleRepository();
             if (!db.HaveAnySchedule())
             {
-                db.InsertSchedule(new Schedule() { Id = 1, Exercise_FK = 0, Exercise = "", Time = "", Set = 0, Count = 0, Program = 0, Day = -3, Enable = true });
+                db.InsertSchedule(new Schedule() { Id = 1, Exercise_FK = 0, Exercise = "", Time = "", Set = 0, Count = 0, Program = 1, Day = -3, Enable = true });
             }
+                       
 
+            //exerciseRepository g = new exerciseRepository();
+            //var t = g.GetExerciseById(3);
+            //var tt= g.GetExerciseById(4);
+            //db.InsertSchedule(new Schedule() { Exercise_FK = t.Id, Exercise = t.name, Time = "", Set = 3, Count = 6, Program = 1, Day = 1, Enable = true });
+            // db.InsertSchedule(new Schedule() {  Exercise_FK = tt.Id, Exercise = tt.name, Time = "", Set = 4, Count = 12, Program = 1, Day = 1 ,Enable = true });
+            //var y = db.GetAllSchedule();
             UpdateList();
             ListView.ItemClick += ListView_ItemClick;
 
@@ -40,9 +47,9 @@ namespace ScheduleGym
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             int id = (int)e.Id;
-           //// var intent = new Intent(this, typeof(ShowInformationPerson));
-           // intent.PutExtra("personId", id);
-           // StartActivity(intent);
+            var intent = new Intent(this, typeof(PerDayActivity));
+            intent.PutExtra("personId", id);
+           StartActivity(intent);
         }
 
         public void UpdateList()

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="70.0dp"
+        android:id="@+id/lblShowDay"
+        android:gravity="center" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="41.0dp"
+        android:id="@+id/lblLastExersice"
+        android:gravity="center|right"
+        android:layout_marginRight="22.0dp" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="46.0dp"
+        android:id="@+id/lblCountExersice"
+        android:layout_marginBottom="83.5dp"
+        android:gravity="center|right"
+        android:layout_marginRight="22.0dp" />
+    <Button
+        android:text="اضافه کردن حرکت"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAdd"
+        android:layout_marginLeft="89.5dp"
+        android:layout_marginRight="72.5dp" />
+</LinearLayout>

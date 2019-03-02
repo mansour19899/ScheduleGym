@@ -90,8 +90,20 @@ namespace ScheduleGym
         public Schedule Find(System.Linq.Expressions.Expression<Func<Schedule, bool>> predicate)
         {
             try
-            {
+            {                
                 return db.Find(predicate);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public IQueryable<Schedule> Where(System.Linq.Expressions.Expression<Func<Schedule, bool>> predicate)
+        {
+            try
+            {
+                return db.Table<Schedule>().Where(predicate).AsQueryable();               
             }
             catch
             {

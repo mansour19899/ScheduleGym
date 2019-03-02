@@ -39,6 +39,7 @@ namespace ScheduleGym
         public int Day { get; set; }
         [NotNull]
         public DateTime Date { get; set; }
+        public float weight { get; set; }
     }
 
     class RegisterDayRepository

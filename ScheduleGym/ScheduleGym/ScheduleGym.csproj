@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter\ExersiceGroupAdapter.cs" />
+    <Compile Include="AddExerciseActivity.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Adapter\DayAdapter.cs" />
     <Compile Include="DaysActivity.cs" />
@@ -156,6 +157,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Exerciselayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AddExerciselayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\PerExerciselayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -39,6 +39,7 @@ namespace ScheduleGym
             int id = (int)e.Id;
             var intent = new Intent(this, typeof(ExerciseActivity));
             intent.PutExtra("type", listGroup[e.Position].type);
+            intent.PutExtra("namegroup", listGroup[e.Position].name);
             intent.PutExtra("day", Intent.GetIntExtra("day", 0));
             intent.PutExtra("program", Intent.GetIntExtra("program", 0));
             StartActivity(intent);

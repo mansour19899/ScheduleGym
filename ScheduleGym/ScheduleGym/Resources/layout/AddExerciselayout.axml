@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="71.0dp"
+        android:id="@+id/lblShowExercise"
+        android:gravity="center"
+        android:layout_marginBottom="70.0dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="43.0dp"
+        android:id="@+id/liner1"
+        android:gravity="center">
+        <TextView
+            android:text="ست"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView2"
+            android:gravity="center|bottom"
+            android:layout_marginRight="9.5dp"
+            android:textSize="20dp" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="42.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/txtSet"
+            android:layout_marginLeft="0.0dp"
+            android:layout_marginRight="45.5dp" />
+        <TextView
+            android:text="تعداد"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView2"
+            android:gravity="center|bottom"
+            android:layout_marginRight="9.5dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="18.0dp" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="45.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/txtCount"
+            android:layout_marginRight="37.5dp"
+            android:layout_marginLeft="0.0dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="64.5dp"
+        android:id="@+id/liner2"
+        android:gravity="center">
+        <TextView
+            android:text="دقیقه"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="44.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView3"
+            android:gravity="bottom" />
+        <EditText
+            android:inputType="number"
+            android:layout_width="44.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/txtMin" />
+    </LinearLayout>
+    <Button
+        android:text="اضافه کن"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAddExersice"
+        android:layout_marginTop="37.5dp"
+        android:layout_marginRight="107.0dp"
+        android:layout_marginLeft="99.0dp" />
+</LinearLayout>

@@ -2239,8 +2239,8 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f080043
 			public const int action_mode_close_button = 2131230787;
 			
-			// aapt resource value: 0x7f0800b5
-			public const int action_settings = 2131230901;
+			// aapt resource value: 0x7f0800bb
+			public const int action_settings = 2131230907;
 			
 			// aapt resource value: 0x7f080097
 			public const int action_text = 2131230871;
@@ -2272,11 +2272,17 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f080028
 			public const int bottom = 2131230760;
 			
-			// aapt resource value: 0x7f0800b2
-			public const int btnAdd = 2131230898;
+			// aapt resource value: 0x7f0800b8
+			public const int btnAdd = 2131230904;
 			
 			// aapt resource value: 0x7f08007d
 			public const int btnAddExersice = 2131230845;
+			
+			// aapt resource value: 0x7f0800b4
+			public const int btnNotNow = 2131230900;
+			
+			// aapt resource value: 0x7f0800b3
+			public const int btnPassed = 2131230899;
 			
 			// aapt resource value: 0x7f08004b
 			public const int buttonPanel = 2131230795;
@@ -2413,8 +2419,8 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f080081
 			public const int largeLabel = 2131230849;
 			
-			// aapt resource value: 0x7f0800b1
-			public const int lblCountExersice = 2131230897;
+			// aapt resource value: 0x7f0800b7
+			public const int lblCountExersice = 2131230903;
 			
 			// aapt resource value: 0x7f080091
 			public const int lblDay = 2131230865;
@@ -2422,8 +2428,8 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f080092
 			public const int lblExersiceGroup = 2131230866;
 			
-			// aapt resource value: 0x7f0800b0
-			public const int lblLastExersice = 2131230896;
+			// aapt resource value: 0x7f0800b6
+			public const int lblLastExersice = 2131230902;
 			
 			// aapt resource value: 0x7f0800ac
 			public const int lblNameDay = 2131230892;
@@ -2437,11 +2443,20 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f080093
 			public const int lblSet = 2131230867;
 			
-			// aapt resource value: 0x7f0800af
-			public const int lblShowDay = 2131230895;
+			// aapt resource value: 0x7f0800b5
+			public const int lblShowDay = 2131230901;
 			
 			// aapt resource value: 0x7f080075
 			public const int lblShowExercise = 2131230837;
+			
+			// aapt resource value: 0x7f0800ae
+			public const int lblShowPerExercise = 2131230894;
+			
+			// aapt resource value: 0x7f0800af
+			public const int lblShowPerSet = 2131230895;
+			
+			// aapt resource value: 0x7f0800b1
+			public const int lblWeightt = 2131230897;
 			
 			// aapt resource value: 0x7f080034
 			public const int left = 2131230772;
@@ -2452,8 +2467,8 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f0800a9
 			public const int line3 = 2131230889;
 			
-			// aapt resource value: 0x7f0800ae
-			public const int linearLayout1 = 2131230894;
+			// aapt resource value: 0x7f0800b0
+			public const int linearLayout1 = 2131230896;
 			
 			// aapt resource value: 0x7f080076
 			public const int liner1 = 2131230838;
@@ -2479,8 +2494,8 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f08008f
 			public const int lstShowExercise = 2131230863;
 			
-			// aapt resource value: 0x7f0800b4
-			public const int masked = 2131230900;
+			// aapt resource value: 0x7f0800ba
+			public const int masked = 2131230906;
 			
 			// aapt resource value: 0x7f08009b
 			public const int media_actions = 2131230875;
@@ -2716,6 +2731,9 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f080078
 			public const int txtSet = 2131230840;
 			
+			// aapt resource value: 0x7f0800b2
+			public const int txtWeight = 2131230898;
+			
 			// aapt resource value: 0x7f080009
 			public const int up = 2131230729;
 			
@@ -2725,8 +2743,8 @@ namespace ScheduleGym
 			// aapt resource value: 0x7f08000e
 			public const int view_offset_helper = 2131230734;
 			
-			// aapt resource value: 0x7f0800b3
-			public const int visible = 2131230899;
+			// aapt resource value: 0x7f0800b9
+			public const int visible = 2131230905;
 			
 			// aapt resource value: 0x7f080027
 			public const int withText = 2131230759;

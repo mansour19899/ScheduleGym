@@ -39,7 +39,7 @@ namespace ScheduleGym
         public int Day { get; set; }
         [NotNull]
         public DateTime Date { get; set; }
-        public float weight { get; set; }
+        public Decimal weight { get; set; }
     }
 
     class RegisterDayRepository
@@ -85,6 +85,52 @@ namespace ScheduleGym
         public void DeleteRegisterDay(RegisterDay RegisterDay)
         {
             db.Delete(RegisterDay);
+        }
+
+        public IQueryable<RegisterDay> Where(System.Linq.Expressions.Expression<Func<RegisterDay, bool>> predicate)
+        {
+            try
+            {
+                return db.Table<RegisterDay>().Where(predicate).AsQueryable();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public bool Today(int id_fk,DateTime date)
+        {
+            try
+            {
+                return db.Table<RegisterDay>().Any(p => p.Date.ToShortDateString() == date.ToShortDateString()&p.Exercise_FK==id_fk);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public RegisterDay Find(System.Linq.Expressions.Expression<Func<RegisterDay, bool>> predicate)
+        {
+            try
+            {
+                return db.Find(predicate);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public RegisterDay GiveMe(int id_fk, DateTime date)
+        {
+            try
+            {
+                return db.Table<RegisterDay>().Where(p =>  p.Exercise_FK == id_fk).ToList().LastOrDefault();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public bool HaveAnyRegisterDay()

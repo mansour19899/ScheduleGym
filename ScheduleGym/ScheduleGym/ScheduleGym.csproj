@@ -71,6 +71,7 @@
     <Compile Include="ExersiceGroupActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PerDayActivity.cs" />
+    <Compile Include="PerExerciseActivity.cs" />
     <Compile Include="RegisterDay.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

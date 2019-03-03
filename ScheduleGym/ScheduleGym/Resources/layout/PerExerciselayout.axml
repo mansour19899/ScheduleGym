@@ -3,5 +3,60 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="59.0dp"
+        android:id="@+id/lblShowPerExercise"
+        android:gravity="center"
+        android:layout_marginTop="58.5dp" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="34.5dp"
+        android:id="@+id/lblShowPerSet"
+        android:gravity="center" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="93.5dp"
+        android:id="@+id/linearLayout1"
+        android:gravity="center">
+        <TextView
+            android:text="وزنه"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/lblWeightt"
+            android:gravity="bottom" />
+        <EditText
+            android:inputType="numberDecimal"
+            android:layout_width="77.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/txtWeight"
+            android:layout_marginRight="0.0dp"
+            android:gravity="bottom" />
+    </LinearLayout>
+    <Button
+        android:text="انجام شد"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPassed"
+        android:layout_marginRight="120.0dp"
+        android:layout_marginLeft="120.0dp"
+        android:layout_marginTop="121.5dp"
+        android:background="#026c45"
+        android:textColor="#ffffff" />
+    <Button
+        android:text="فعلا نه"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNotNow"
+        android:layout_marginRight="120.0dp"
+        android:layout_marginLeft="120.0dp"
+        android:layout_marginTop="27.0dp"
+        android:background="#580000"
+        android:textColor="#ffffff" />
 </LinearLayout>

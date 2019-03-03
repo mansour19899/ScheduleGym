@@ -16,11 +16,13 @@ namespace ScheduleGym
     {
         private Activity _context;
         private List<Schedule> _list;
-        int i =1;
+        
+        RegisterDayRepository db;
         public ScheduleAdapter(Activity context, List<Schedule> list)
         {
             _context = context;
             _list = list;
+            db = new RegisterDayRepository();
         }
         public override Schedule this[int position]
         {
@@ -47,11 +49,16 @@ namespace ScheduleGym
 
             Schedule Schedule = _list[position];
 
-            view.FindViewById<TextView>(Resource.Id.lblNameExersice).Text = i+" - "+Schedule.Exercise;
+            view.FindViewById<TextView>(Resource.Id.lblNameExersice).Text = (position+1)+" - "+Schedule.Exercise;
             
             view.FindViewById<TextView>(Resource.Id.lblSet).Text = Schedule.Set+"*"+Schedule.Count;
+            if(db.Today(Schedule.Exercise_FK, DateTime.Today))
+            {
+                view.FindViewById<TextView>(Resource.Id.lblNameExersice).SetTextColor(Android.Graphics.Color.DarkGreen);
+                view.FindViewById<TextView>(Resource.Id.lblSet).SetTextColor(Android.Graphics.Color.DarkGreen);
+            }
 
-            i++;
+           
 
             return view;
         }

@@ -69,7 +69,17 @@ namespace ScheduleGym
             ListView.Adapter = new ScheduleAdapter(this, schedules);
 
           lblNameDay.Click += LblNameDay_Click;
+            ListView.ItemClick += ListView_ItemClick;
             // Create your application here
+        }
+
+        private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            int id = (int)e.Id;
+            var intent = new Intent(this, typeof(PerExerciseActivity));
+            intent.PutExtra("Id", id);
+            StartActivity(intent);
+            Finish();
         }
 
         private void LblNameDay_Click(object sender, EventArgs e)

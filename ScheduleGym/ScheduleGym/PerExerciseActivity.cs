@@ -50,27 +50,26 @@ namespace ScheduleGym
 
         private void BtnPassed_Click(object sender, EventArgs e)
         {
-           if(db.Today(schedule.Exercise_FK,DateTime.Today))
+            if(txtWeight.Text != "")
             {
-                var date = DateTime.Today.ToShortDateString();
-                var y = db.GiveMe(schedule.Exercise_FK, DateTime.Today);
-                var f = db.GetAllRegisterDay();
-                var u = y.Date.ToShortDateString();
-                if (u==date)
+                if (db.Today(schedule.Exercise_FK, DateTime.Today))
                 {
-                    y.Date = DateTime.Today;
-                    y.weight = Convert.ToDecimal(txtWeight.Text);
-                }
+                    var date = DateTime.Today.ToShortDateString();
+                    var y = db.GiveMe(schedule.Exercise_FK, DateTime.Today);
+                    var f = db.GetAllRegisterDay();
+                    var u = y.Date.ToShortDateString();
+                    if (u == date)
+                    {
+                        y.Date = DateTime.Today;
+                        y.weight = Convert.ToDecimal(txtWeight.Text);
+                    }
 
-                db.UpdateRegisterDay(y);
-                Toast.MakeText(this, "ثبت شد", ToastLength.Long).Show();
-                Finish();
-            }
-            else
-            {
-                if(txtWeight.Text=="")
-                {
-                    Toast.MakeText(this, "وزن را وارد کنید", ToastLength.Long).Show();
+                    db.UpdateRegisterDay(y);
+                    Toast.MakeText(this, "تغییر یافت", ToastLength.Long).Show();
+                    var intent = new Intent(this, typeof(PerDayActivity));
+                    intent.PutExtra("personId", y.Day);
+                    StartActivity(intent);
+                    Finish();
                 }
                 else
                 {
@@ -91,9 +90,14 @@ namespace ScheduleGym
                     intent.PutExtra("personId", schedule.Day);
                     StartActivity(intent);
                     Finish();
-                }
 
+                }
             }
+            else
+            {
+                Toast.MakeText(this, "وزن را وارد کنید", ToastLength.Long).Show();
+            }
+
 
 
         }

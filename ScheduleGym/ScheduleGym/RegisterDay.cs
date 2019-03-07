@@ -102,7 +102,10 @@ namespace ScheduleGym
         {
             try
             {
-                return db.Table<RegisterDay>().Any(p => p.Date.ToShortDateString() == date.ToShortDateString()&p.Exercise_FK==id_fk);
+                return db.Table<RegisterDay>().Any(p => p.Date.ToShortDateString() == date.ToShortDateString() & p.Exercise_FK == id_fk);
+                //var t = GetAllRegisterDay();
+                //return db.Table<RegisterDay>().Any(p => p.Date.Year == date.Year&p.Date.DayOfYear==date.DayOfYear & p.Exercise_FK == id_fk);
+
             }
             catch
             {

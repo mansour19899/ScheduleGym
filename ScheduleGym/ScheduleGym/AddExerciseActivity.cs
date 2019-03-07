@@ -67,15 +67,23 @@ namespace ScheduleGym
 
         private void BtnAddExersice_Click(object sender, EventArgs e)
         {
-            dbb.InsertSchedule(new Schedule() { Exercise_FK = exercise.Id, Exercise = exercise.name, Time = txtMin.Text, Set =Convert.ToInt16(txtSet.Text), Count = Convert.ToInt16(txtCount.Text), Program = program, Day = day, Enable = true });
-            Toast.MakeText(this,"اضافه شد", ToastLength.Long).Show();
-            FinishAffinity();
-            StartActivity(typeof(DaysActivity));
-            var intent = new Intent(this, typeof(PerDayActivity));
-            intent.PutExtra("personId", day);
-            StartActivity(intent);
-           
-            
+            if(txtCount.Text==""||txtSet.Text=="")
+            {
+                Toast.MakeText(this, "مقادیر را وارد کنید", ToastLength.Long).Show();
+            }
+            else
+            {
+                dbb.InsertSchedule(new Schedule() { Exercise_FK = exercise.Id, Exercise = exercise.name, Time = txtMin.Text, Set = Convert.ToInt16(txtSet.Text), Count = Convert.ToInt16(txtCount.Text), Program = program, Day = day, Enable = true });
+                Toast.MakeText(this, "اضافه شد", ToastLength.Long).Show();
+                FinishAffinity();
+                StartActivity(typeof(DaysActivity));
+                var intent = new Intent(this, typeof(PerDayActivity));
+                intent.PutExtra("personId", day);
+                StartActivity(intent);
+
+            }
+
+
         }
     }
 }

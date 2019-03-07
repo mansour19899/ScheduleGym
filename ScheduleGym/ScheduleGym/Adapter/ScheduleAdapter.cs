@@ -52,7 +52,7 @@ namespace ScheduleGym
             view.FindViewById<TextView>(Resource.Id.lblNameExersice).Text = (position+1)+" - "+Schedule.Exercise;
             
             view.FindViewById<TextView>(Resource.Id.lblSet).Text = Schedule.Set+"*"+Schedule.Count;
-            if(db.Today(Schedule.Exercise_FK, DateTime.Today))
+            if(db.Today(Schedule.Exercise_FK, DateTime.Now))
             {
                 view.FindViewById<TextView>(Resource.Id.lblNameExersice).SetTextColor(Android.Graphics.Color.DarkGreen);
                 view.FindViewById<TextView>(Resource.Id.lblSet).SetTextColor(Android.Graphics.Color.DarkGreen);

@@ -18,17 +18,26 @@ namespace ScheduleGym
         private TextView lblShowDay;
         private TextView lblLastExersice;
         private TextView lblCountExersice;
+        EditText txtAddWeight;
         private Button btnAdd;
+        private Button btnAddWeight;
+        private Button btnBack;
+        WeightRepository db;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Statuslayout);
+            db = new WeightRepository();
 
             lblLastExersice = FindViewById<TextView>(Resource.Id.lblLastExersice);
             lblCountExersice = FindViewById<TextView>(Resource.Id.lblCountExersice);
             lblShowDay = FindViewById<TextView>(Resource.Id.lblShowDay);
             btnAdd = FindViewById<Button>(Resource.Id.btnAdd);
+            btnAddWeight = FindViewById<Button>(Resource.Id.btnAddWeight);
+            btnBack = FindViewById<Button>(Resource.Id.btnBack);
+            txtAddWeight = FindViewById<EditText>(Resource.Id.txtAddWeight);
 
 
             lblCountExersice.Text= Intent.GetStringExtra("count");
@@ -36,7 +45,37 @@ namespace ScheduleGym
             lblLastExersice.Text = Intent.GetStringExtra("last");
 
             btnAdd.Click += BtnAdd_Click;
+            btnAddWeight.Click += BtnAddWeight_Click;
+            btnBack.Click += BtnBack_Click;
             // Create your application here
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            Finish();
+        }
+
+        private void BtnAddWeight_Click(object sender, EventArgs e)
+        {
+            if(txtAddWeight.Text!="")
+            {
+                var ttt = db.GetAllWeight();
+                var ty = Convert.ToDecimal(txtAddWeight.Text);
+
+                if (db.Today())
+                {
+                    var y = db.GiveMe();
+                    y.weight = ty;
+                    db.UpdateWeight(y);
+                    Toast.MakeText(this, "تغییر یافت", ToastLength.Long).Show();
+                }
+                else
+                {
+                    db.InsertWeight(new Weight() { weight = Convert.ToDecimal(txtAddWeight.Text), Date = DateTime.Now });
+                    Toast.MakeText(this, "ثبت شد", ToastLength.Long).Show();
+                }
+            }
+
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)

@@ -24,7 +24,7 @@ namespace ScheduleGym
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Dayslayout);
-
+            DateTime tt = DateTime.Now;
             db = new ScheduleRepository();
             if (!db.HaveAnySchedule())
             {

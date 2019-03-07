@@ -16,10 +16,13 @@ namespace ScheduleGym
     {
         private Activity _context;
         private List<Day> _list;
+        RegisterDayRepository db;
         public DayAdapter(Activity context, List<Day> list)
         {
             _context = context;
             _list = list;
+            db = new RegisterDayRepository();
+            var tttt = db.GetAllRegisterDay();
         }
         public override Day this[int position]
         {
@@ -46,7 +49,18 @@ namespace ScheduleGym
             Day day = _list[position];
 
             view.FindViewById<TextView>(Resource.Id.lblDay).Text = day.DayName;
-            
+            var t = db.Where(p => p.Day == position+1 & p.Program == 1).ToList().LastOrDefault();
+            if(t!=null)
+            {
+                view.FindViewById<TextView>(Resource.Id.lblLastDay).Text ="آخرین تمرین :"+ t.Date.ToPersianDateString();
+            }
+            else
+            {
+                view.FindViewById<TextView>(Resource.Id.lblLastDay).Text = "";
+            }
+          
+
+
 
             return view;
         }

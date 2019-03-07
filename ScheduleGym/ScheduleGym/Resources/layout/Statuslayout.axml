@@ -29,11 +29,41 @@
         android:layout_marginBottom="83.5dp"
         android:gravity="center|right"
         android:layout_marginRight="22.0dp" />
+    <TextView
+        android:text="وزن امروز خود را وارد کنید"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/textView1" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtAddWeight"
+        android:layout_marginRight="140.0dp"
+        android:layout_marginLeft="140.0dp" />
+    <Button
+        android:text="اضافه کردن وزن"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAddWeight"
+        android:layout_marginLeft="85.5dp"
+        android:layout_marginRight="85.5dp"
+        android:layout_marginBottom="62.0dp" />
     <Button
         android:text="اضافه کردن حرکت"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnAdd"
-        android:layout_marginLeft="89.5dp"
-        android:layout_marginRight="72.5dp" />
+        android:layout_marginLeft="85.5dp"
+        android:layout_marginRight="85.5dp"
+        android:layout_marginBottom="20.0dp" />
+    <Button
+        android:text="بازگشت"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBack"
+        android:layout_marginLeft="20.5dp"
+        android:layout_marginRight="250.5dp" />
 </LinearLayout>

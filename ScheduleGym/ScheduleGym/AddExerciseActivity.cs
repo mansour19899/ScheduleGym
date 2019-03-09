@@ -19,6 +19,9 @@ namespace ScheduleGym
         int Id;
         int day;
         int program;
+        int _set = 0;
+        int _count = 0;
+        string _time = "";
         exerciseRepository db;
         ScheduleRepository dbb;
         EditText txtSet;
@@ -67,13 +70,28 @@ namespace ScheduleGym
 
         private void BtnAddExersice_Click(object sender, EventArgs e)
         {
-            if(txtCount.Text==""||txtSet.Text=="")
+            if (exercise.cardio)
+            {
+                _set = 0;
+                _count = 0;
+                _time = txtMin.Text;
+            }
+            else
+            {
+                _set = Convert.ToInt16(txtSet.Text);
+                _count = Convert.ToInt16(txtCount.Text);
+                _time ="";
+            }
+
+
+            if ((txtCount.Text==""||txtSet.Text=="")&txtMin.Text=="")
             {
                 Toast.MakeText(this, "مقادیر را وارد کنید", ToastLength.Long).Show();
             }
             else
             {
-                dbb.InsertSchedule(new Schedule() { Exercise_FK = exercise.Id, Exercise = exercise.name, Time = txtMin.Text, Set = Convert.ToInt16(txtSet.Text), Count = Convert.ToInt16(txtCount.Text), Program = program, Day = day, Enable = true });
+                
+                dbb.InsertSchedule(new Schedule() { Exercise_FK = exercise.Id, Exercise = exercise.name, Time = _time, Set = _set, Count = _count, Program = program, Day = day, Enable = true });
                 Toast.MakeText(this, "اضافه شد", ToastLength.Long).Show();
                 FinishAffinity();
                 StartActivity(typeof(DaysActivity));

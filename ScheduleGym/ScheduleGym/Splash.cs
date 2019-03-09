@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -22,14 +23,18 @@ namespace ScheduleGym
 
             SetContentView(Resource.Layout.Splash);
 
-             db = new exerciseRepository();
-            if(db.HaveAnyExercise())
+
+            db = new exerciseRepository();
+            var t = db.GetAllExercise().Count();
+
+            if(t==234)
             {
                 Toast.MakeText(this, "Hello ", ToastLength.Long).Show();
                 StartActivity(typeof(DaysActivity));
             }
             else
             {
+                DeleteAllExercise();
                 AddExercise();
                 Toast.MakeText(this, "ADD ", ToastLength.Long).Show();
                 StartActivity(typeof(DaysActivity));
@@ -38,6 +43,10 @@ namespace ScheduleGym
             // Create your application here
         }
 
+        public void DeleteAllExercise()
+        {
+            db.ClearAll();
+        }
         public void AddExercise()
         {
 
@@ -152,153 +161,153 @@ namespace ScheduleGym
             db.InsertExercise(new Exercise() { Id = 126, type = 4, name = "پشت بازو دیپ بر روی زمین", cardio = false, IsExercise = true });
             db.InsertExercise(new Exercise() { Id = 127, type = 4, name = "پشت بازو هالتر پرس مچ برعکس", cardio = false, IsExercise = true });
 
-            db.InsertExercise(new Exercise() { Id = 140, type = 4, name = "چهارسر زانو", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 141, type = 4, name = "اسکوات لندماین", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 142, type = 4, name = "لانگ با هالتر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 143, type = 4, name = "لانگ به عقب با هالتر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 144, type = 4, name = "جلو پا دستگاه تک پا", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 145, type = 4, name = "اسکوات اسمیت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 146, type = 4, name = "لانگ با وزن بدن", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 147, type = 4, name = "لانگ پرشی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 148, type = 4, name = "اسکوات با مکث", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 149, type = 4, name = "اندرسون اسکوات", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 150, type = 4, name = "پرس پا دستگاه تک پا", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 151, type = 4, name = "در جا دویدن", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 152, type = 4, name = "در جا راه رافتن", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 153, type = 4, name = "گابلت اسکوات", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 154, type = 4, name = "اسکوات با وزن بدن", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 155, type = 4, name = "اسکوات پرشی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 156, type = 4, name = "دوچرخه ثابت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 157, type = 4, name = "طناب زدن", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 158, type = 4, name = "پرس پا دستگاه پا باز", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 159, type = 4, name = "سی سی اسکوات با وزنه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 160, type = 4, name = "اسکوات هالتر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 161, type = 4, name = "اسکوات هالتر پا باز", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 162, type = 4, name = "جامپ اسپلیت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 163, type = 4, name = "لانگ دمبل راه رفتن", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 164, type = 4, name = "اسپلیت اسکوات با دمبل", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 165, type = 4, name = "تردمیل", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 166, type = 4, name = "هک اسکوات", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 167, type = 4, name = "کوهنوردی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 168, type = 4, name = "برپی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 169, type = 4, name = "اسکوات پا باز پرشی به پا جمع", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 170, type = 4, name = "جامپینگ جک", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 171, type = 4, name = "لانگ کتل بل به کنار", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 172, type = 4, name = "الپتیکال", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 173, type = 4, name = "اسکوات هالتر کامل", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 174, type = 4, name = "جلو پا دستگاه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 175, type = 4, name = "پرس پا با دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 140, type = 5, name = "چهارسر زانو", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 141, type = 5, name = "اسکوات لندماین", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 142, type = 5, name = "لانگ با هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 143, type = 5, name = "لانگ به عقب با هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 144, type = 5, name = "جلو پا دستگاه تک پا", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 145, type = 5, name = "اسکوات اسمیت", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 146, type = 5, name = "لانگ با وزن بدن", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 147, type = 5, name = "لانگ پرشی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 148, type = 5, name = "اسکوات با مکث", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 149, type = 5, name = "اندرسون اسکوات", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 150, type = 5, name = "پرس پا دستگاه تک پا", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 151, type = 5, name = "در جا دویدن", cardio = true, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 152, type = 5, name = "در جا راه رافتن", cardio = true, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 153, type = 5, name = "گابلت اسکوات", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 154, type = 5, name = "اسکوات با وزن بدن", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 155, type = 5, name = "اسکوات پرشی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 156, type = 5, name = "دوچرخه ثابت", cardio = true, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 157, type = 5, name = "طناب زدن", cardio = true, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 158, type = 5, name = "پرس پا دستگاه پا باز", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 159, type = 5, name = "سی سی اسکوات با وزنه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 160, type = 5, name = "اسکوات هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 161, type = 5, name = "اسکوات هالتر پا باز", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 162, type = 5, name = "جامپ اسپلیت", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 163, type = 5, name = "لانگ دمبل راه رفتن", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 164, type = 5, name = "اسپلیت اسکوات با دمبل", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 165, type = 5, name = "تردمیل", cardio = true, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 166, type = 5, name = "هک اسکوات", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 167, type = 5, name = "کوهنوردی", cardio = true, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 168, type = 5, name = "برپی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 169, type = 5, name = "اسکوات پا باز پرشی به پا جمع", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 170, type = 5, name = "جامپینگ جک", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 171, type = 5, name = "لانگ کتل بل به کنار", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 172, type = 5, name = "الپتیکال", cardio = true, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 173, type = 5, name = "اسکوات هالتر کامل", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 174, type = 5, name = "جلو پا دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 175, type = 5, name = "پرس پا با دستگاه", cardio = false, IsExercise = true });
 
 
-            db.InsertExercise(new Exercise() { Id = 180, type = 4, name = "ساق پا", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 181, type = 4, name = "ساق پا پرس با دستگاه پرس پا", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 182, type = 4, name = "ساق پا ایستاده", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 183, type = 4, name = "ساق پا نشسته با دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 180, type = 6, name = "ساق پا", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 181, type = 6, name = "ساق پا پرس با دستگاه پرس پا", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 182, type = 6, name = "ساق پا ایستاده", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 183, type = 6, name = "ساق پا نشسته با دستگاه", cardio = false, IsExercise = true });
 
 
-            db.InsertExercise(new Exercise() { Id = 190, type = 4, name = "پشت یا زیربغل", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 191, type = 4, name = "پول آپ با وزنه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 192, type = 4, name = "بارفیکس مچ برعکس", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 193, type = 4, name = "زیر بغل سیم کش میله V", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 194, type = 4, name = "زیر بغل سیم کش مچ برعکس", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 195, type = 4, name = "زیر بغل سیم کش از جلو دست جمع", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 196, type = 4, name = "زیر بغل سیم کش دست صاف", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 197, type = 4, name = "زیر بغل دستگاه اچ", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 198, type = 4, name = "زیر بغل سیم کش دست باز", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 199, type = 4, name = "بارفیکس", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 190, type = 7, name = "پشت یا زیربغل", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 191, type = 7, name = "پول آپ با وزنه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 192, type = 7, name = "بارفیکس مچ برعکس", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 193, type = 7, name = "زیر بغل سیم کش میله V", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 194, type = 7, name = "زیر بغل سیم کش مچ برعکس", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 195, type = 7, name = "زیر بغل سیم کش از جلو دست جمع", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 196, type = 7, name = "زیر بغل سیم کش دست صاف", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 197, type = 7, name = "زیر بغل دستگاه اچ", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 198, type = 7, name = "زیر بغل سیم کش دست باز", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 199, type = 7, name = "بارفیکس", cardio = false, IsExercise = true });
  
-            db.InsertExercise(new Exercise() { Id = 210, type = 4, name = "گردن", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 211, type = 4, name = "جلو بازو دمبل چکشی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 210, type = 8, name = "گردن", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 211, type = 8, name = "جلو بازو دمبل چکشی", cardio = false, IsExercise = true });
          
-            db.InsertExercise(new Exercise() { Id = 220, type = 4, name = "ذوزنقه", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 221, type = 4, name = "مچ دستگاه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 222, type = 4, name = "شراگ هالتر از پشت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 223, type = 4, name = "شراگ دمبل", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 224, type = 4, name = "شراگ با دستگاه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 225, type = 4, name = "شراگ با دستگاه اسمیت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 226, type = 4, name = "شراگ با هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 220, type = 9, name = "ذوزنقه", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 221, type = 9, name = "مچ دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 222, type = 9, name = "شراگ هالتر از پشت", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 223, type = 9, name = "شراگ دمبل", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 224, type = 9, name = "شراگ با دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 225, type = 9, name = "شراگ با دستگاه اسمیت", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 226, type = 9, name = "شراگ با هالتر", cardio = false, IsExercise = true });
 
-            db.InsertExercise(new Exercise() { Id = 230, type = 4, name = "میان کمر", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 231, type = 4, name = "پارویی معکوس", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 232, type = 4, name = "زیر بغل خم دمبل", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 233, type = 4, name = "زیر بغل دمبل روی میز شیبدار", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 234, type = 4, name = "زیر بغل خم با اسمیت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 235, type = 4, name = "تی بار دستگاه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 236, type = 4, name = "زیر بغل هالتر خم مچ برعکس", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 237, type = 4, name = "زیر بغل خم با هالتر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 238, type = 4, name = "پارویی رو به بالا", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 239, type = 4, name = "زیر بغل قایقی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 240, type = 4, name = "زیر بغل تک دمبل خم", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 230, type = 10, name = "میان کمر", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 231, type = 10, name = "پارویی معکوس", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 232, type = 10, name = "زیر بغل خم دمبل", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 233, type = 10, name = "زیر بغل دمبل روی میز شیبدار", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 234, type = 10, name = "زیر بغل خم با اسمیت", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 235, type = 10, name = "تی بار دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 236, type = 10, name = "زیر بغل هالتر خم مچ برعکس", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 237, type = 10, name = "زیر بغل خم با هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 238, type = 10, name = "پارویی رو به بالا", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 239, type = 10, name = "زیر بغل قایقی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 240, type = 10, name = "زیر بغل تک دمبل خم", cardio = false, IsExercise = true });
 
-            db.InsertExercise(new Exercise() { Id = 250, type = 4, name = "پایین کمر", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 251, type = 4, name = "رک پول", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 252, type = 4, name = "هایپراکستنشن (فیله کمر)", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 250, type = 11, name = "پایین کمر", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 251, type = 11, name = "رک پول", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 252, type = 11, name = "هایپراکستنشن (فیله کمر)", cardio = false, IsExercise = true });
 
-            db.InsertExercise(new Exercise() { Id = 260, type = 4, name = "ساعد", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 261, type = 4, name = "ساعد ایستاده با هالتر از پشت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 262, type = 4, name = "ساعد با هالتر نشسته", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 260, type = 12, name = "ساعد", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 261, type = 12, name = "ساعد ایستاده با هالتر از پشت", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 262, type = 12, name = "ساعد با هالتر نشسته", cardio = false, IsExercise = true });
 
-            db.InsertExercise(new Exercise() { Id = 270, type = 4, name = "شکم", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 271, type = 4, name = "بالا آوردن موربی زانو در حالت آویزان", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 272, type = 4, name = "کرانچ بر روی میز با شیب منفی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 273, type = 4, name = "کرانچ روی توپ تمرین", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 274, type = 4, name = "لمس انگشتان پا", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 275, type = 4, name = "کشیدن توپ تمرین به سمت شکم", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 276, type = 4, name = "شکم غلطک", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 277, type = 4, name = "کرانچ دوچرخه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 278, type = 4, name = "پلانک", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 279, type = 4, name = "کرانچ مورب", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 280, type = 4, name = "کرانچ", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 281, type = 4, name = "بالابردن باسن با اسمیت", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 282, type = 4, name = "شکم خلبانی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 283, type = 4, name = "کرانچ شکم با دستگاه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 284, type = 4, name = "درازنشست", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 285, type = 4, name = "درازنشست روی میز با شیب منفی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 286, type = 4, name = "چرخش آرنج به زانوی پای مخالف", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 287, type = 4, name = "کرانچ معکوس روی میز با شیب منفی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 288, type = 4, name = "درازنشست پروانه ای", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 289, type = 4, name = "چرخش روسی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 290, type = 4, name = "کرانچ مورب بر روی میز با شیب منفی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 291, type = 4, name = "درازنشست جک نایف", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 292, type = 4, name = "بالا آوردن پاها در حالت آویزان", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 293, type = 4, name = "بالا آوردن پاها در حالت خوابیده", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 294, type = 4, name = "کرانچ سیم کش با طناب", cardio = false, IsExercise = true });
-
-
+            db.InsertExercise(new Exercise() { Id = 270, type = 13, name = "شکم", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 271, type = 13, name = "بالا آوردن موربی زانو در حالت آویزان", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 272, type = 13, name = "کرانچ بر روی میز با شیب منفی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 273, type = 13, name = "کرانچ روی توپ تمرین", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 274, type = 13, name = "لمس انگشتان پا", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 275, type = 13, name = "کشیدن توپ تمرین به سمت شکم", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 276, type = 13, name = "شکم غلطک", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 277, type = 13, name = "کرانچ دوچرخه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 278, type = 13, name = "پلانک", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 279, type = 13, name = "کرانچ مورب", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 280, type = 13, name = "کرانچ", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 281, type = 13, name = "بالابردن باسن با اسمیت", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 282, type = 13, name = "شکم خلبانی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 283, type = 13, name = "کرانچ شکم با دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 284, type = 13, name = "درازنشست", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 285, type = 13, name = "درازنشست روی میز با شیب منفی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 286, type = 13, name = "چرخش آرنج به زانوی پای مخالف", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 287, type = 13, name = "کرانچ معکوس روی میز با شیب منفی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 288, type = 13, name = "درازنشست پروانه ای", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 289, type = 13, name = "چرخش روسی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 290, type = 13, name = "کرانچ مورب بر روی میز با شیب منفی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 291, type = 13, name = "درازنشست جک نایف", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 292, type = 13, name = "بالا آوردن پاها در حالت آویزان", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 293, type = 13, name = "بالا آوردن پاها در حالت خوابیده", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 294, type = 13, name = "کرانچ سیم کش با طناب", cardio = false, IsExercise = true });
 
 
-            db.InsertExercise(new Exercise() { Id = 300, type = 4, name = "همسترینگ", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 301, type = 4, name = "ددلیفت دمبل پا صاف", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 302, type = 4, name = "هل دادن سورتمه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 303, type = 4, name = "بالا آوردن همسترینگ و باسن", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 304, type = 4, name = "پرش درجا با آوردن پاها داخل شکم", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 305, type = 4, name = "سوئینگ کتل بل تک دست", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 306, type = 4, name = "ددلیفت رومانیایی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 307, type = 4, name = "ددلیفت هالتر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 308, type = 4, name = "ددلیفت پا صاف", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 309, type = 4, name = "ددلیفت تک پا", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 310, type = 4, name = "صبح بخیر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 311, type = 4, name = "پشت پا با توپ تمرین", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 312, type = 4, name = "ددلیفت سومو", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 313, type = 4, name = "پشت پا ایستاده با دستگاه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 314, type = 4, name = "ددلیفت رومانیایی با دمبل", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 315, type = 4, name = "پشت پا نشسته با دستگاه", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 316, type = 4, name = "پشت پا خوابیده با دستگاه", cardio = false, IsExercise = true });
+
+
+            db.InsertExercise(new Exercise() { Id = 300, type = 14, name = "همسترینگ", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 301, type = 14, name = "ددلیفت دمبل پا صاف", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 302, type = 14, name = "هل دادن سورتمه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 303, type = 14, name = "بالا آوردن همسترینگ و باسن", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 304, type = 14, name = "پرش درجا با آوردن پاها داخل شکم", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 305, type = 14, name = "سوئینگ کتل بل تک دست", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 306, type = 14, name = "ددلیفت رومانیایی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 307, type = 14, name = "ددلیفت هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 308, type = 14, name = "ددلیفت پا صاف", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 309, type = 14, name = "ددلیفت تک پا", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 310, type = 14, name = "صبح بخیر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 311, type = 14, name = "پشت پا با توپ تمرین", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 312, type = 14, name = "ددلیفت سومو", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 313, type = 14, name = "پشت پا ایستاده با دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 314, type = 14, name = "ددلیفت رومانیایی با دمبل", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 315, type = 14, name = "پشت پا نشسته با دستگاه", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 316, type = 14, name = "پشت پا خوابیده با دستگاه", cardio = false, IsExercise = true });
             
 
-            db.InsertExercise(new Exercise() { Id = 320, type = 4, name = "دورکننده", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 321, type = 4, name = "اَبداکتور ران", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 322, type = 4, name = "راه رفتن از جانب با کش ورزشی", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 323, type = 4, name = "اَبداکشن ایستاده با کش ورزشی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 320, type = 15, name = "دورکننده", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 321, type = 15, name = "اَبداکتور ران", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 322, type = 15, name = "راه رفتن از جانب با کش ورزشی", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 323, type = 15, name = "اَبداکشن ایستاده با کش ورزشی", cardio = false, IsExercise = true });
 
 
-            db.InsertExercise(new Exercise() { Id = 330, type = 4, name = "باسن(سرینی)", cardio = false, IsExercise = false });
-            db.InsertExercise(new Exercise() { Id = 331, type = 4, name = "پل باسن با هالتر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 332, type = 4, name = "پل باسن تک پا", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 333, type = 4, name = "هیپ تراست با هالتر", cardio = false, IsExercise = true });
-            db.InsertExercise(new Exercise() { Id = 334, type = 4, name = "کیک بک با سیم کش", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 330, type = 16, name = "باسن(سرینی)", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 331, type = 16, name = "پل باسن با هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 332, type = 16, name = "پل باسن تک پا", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 333, type = 16, name = "هیپ تراست با هالتر", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 334, type = 16, name = "کیک بک با سیم کش", cardio = false, IsExercise = true });
             
-            db.InsertExercise(new Exercise() { Id = 340, type = 4, name = "نزدیک کننده", cardio = false, IsExercise = false });
+            db.InsertExercise(new Exercise() { Id = 340, type = 17, name = "نزدیک کننده", cardio = false, IsExercise = false });
        
 
 

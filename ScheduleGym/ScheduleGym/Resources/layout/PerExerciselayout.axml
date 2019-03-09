@@ -15,15 +15,17 @@
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
-        android:layout_height="34.5dp"
+        android:layout_height="115.0dp"
         android:id="@+id/lblShowPerSet"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_marginBottom="7.5dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="93.5dp"
+        android:layout_height="58.5dp"
         android:id="@+id/linearLayout1"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="0.0dp">
         <TextView
             android:text="وزنه"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -46,7 +48,7 @@
         android:id="@+id/btnPassed"
         android:layout_marginRight="120.0dp"
         android:layout_marginLeft="120.0dp"
-        android:layout_marginTop="121.5dp"
+        android:layout_marginTop="40.5dp"
         android:background="#026c45"
         android:textColor="#ffffff" />
     <Button

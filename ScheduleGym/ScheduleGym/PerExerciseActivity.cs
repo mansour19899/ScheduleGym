@@ -17,6 +17,7 @@ namespace ScheduleGym
     {
         int id;
         EditText txtWeight;
+        EditText lblWeightt;
         Button btnPassed;
         Button btnNotNow;
         RegisterDayRepository db;
@@ -34,13 +35,36 @@ namespace ScheduleGym
 
             TextView lblShowPerExercise = FindViewById<TextView>(Resource.Id.lblShowPerExercise);
             TextView lblShowPerSet = FindViewById<TextView>(Resource.Id.lblShowPerSet);
+            TextView lblWeightt = FindViewById<TextView>(Resource.Id.lblWeightt);
+
             txtWeight = FindViewById<EditText>(Resource.Id.txtWeight);
             btnPassed = FindViewById<Button>(Resource.Id.btnPassed);
             btnNotNow = FindViewById<Button>(Resource.Id.btnNotNow);
-
             schedule = dbb.Find(p => p.Id == id);
+            StringBuilder d = new StringBuilder();
+
+
+            var lastWeight = db.GiveMe(schedule.Exercise_FK);
+            if(lastWeight!=null)
+            {
+                if (lastWeight.Time == "")
+                {
+
+                    d.AppendLine("آخرین وزنه ای که زده شد:     " + lastWeight.weight + "  کیلوگرم");
+                }
+            
+                else
+                {
+                    lblWeightt.Text = "دقیقه";
+                    d.AppendLine(schedule.Time + "  دقیقه" );
+                    d.AppendLine();
+                    d.AppendLine("آخرین زمان:     " + lastWeight.weight + " دقیقه");
+                }
+     
+            }
+
             lblShowPerExercise.Text = schedule.Exercise;
-            lblShowPerSet.Text = schedule.Set + "*" + schedule.Count;
+            lblShowPerSet.Text =d.ToString();
 
             btnNotNow.Click += BtnNotNow_Click;
             btnPassed.Click += BtnPassed_Click;
@@ -55,21 +79,21 @@ namespace ScheduleGym
                 if (db.Today(schedule.Exercise_FK, DateTime.Today))
                 {
                     var date = DateTime.Today.ToShortDateString();
-                    var y = db.GiveMe(schedule.Exercise_FK, DateTime.Today);
-                    var f = db.GetAllRegisterDay();
+                    var y = db.GiveMe(schedule.Exercise_FK);            
                     var u = y.Date.ToShortDateString();
+                    y.weight = Convert.ToDecimal(txtWeight.Text);
                     if (u == date)
                     {
-                        y.Date = DateTime.Today;
-                        y.weight = Convert.ToDecimal(txtWeight.Text);
+                        y.Date = DateTime.Today;                     
+                        db.UpdateRegisterDay(y);
+                        Toast.MakeText(this, "تغییر یافت", ToastLength.Long).Show();
+                        var intent = new Intent(this, typeof(PerDayActivity));
+                        intent.PutExtra("personId", y.Day);
+                        StartActivity(intent);
+                        Finish();
                     }
 
-                    db.UpdateRegisterDay(y);
-                    Toast.MakeText(this, "تغییر یافت", ToastLength.Long).Show();
-                    var intent = new Intent(this, typeof(PerDayActivity));
-                    intent.PutExtra("personId", y.Day);
-                    StartActivity(intent);
-                    Finish();
+
                 }
                 else
                 {

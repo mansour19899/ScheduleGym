@@ -124,7 +124,7 @@ namespace ScheduleGym
             }
         }
 
-        public RegisterDay GiveMe(int id_fk, DateTime date)
+        public RegisterDay GiveMe(int id_fk)
         {
             try
             {
@@ -135,6 +135,8 @@ namespace ScheduleGym
                 return null;
             }
         }
+
+
 
         public bool HaveAnyRegisterDay()
         {

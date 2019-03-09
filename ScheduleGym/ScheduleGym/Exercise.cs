@@ -97,7 +97,14 @@ namespace ScheduleGym
                 return null;
             }
         }
-
+        public void ClearAll()
+        {
+            var tt = GetAllExercise();
+            foreach (var item in tt)
+            {
+                DeleteExercise(item);
+            }
+        }
         public bool HaveAnyExercise()
         {
             return db.Table<Exercise>().Any();

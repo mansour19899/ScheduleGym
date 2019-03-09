@@ -50,8 +50,12 @@ namespace ScheduleGym
             Schedule Schedule = _list[position];
 
             view.FindViewById<TextView>(Resource.Id.lblNameExersice).Text = (position+1)+" - "+Schedule.Exercise;
-            
-            view.FindViewById<TextView>(Resource.Id.lblSet).Text = Schedule.Set+"*"+Schedule.Count;
+            view.FindViewById<TextView>(Resource.Id.lblSet).Text = Schedule.Set + "*" + Schedule.Count;
+            if (Schedule.Count==0)
+            {
+                view.FindViewById<TextView>(Resource.Id.lblSet).Text = Schedule.Time + "    دقیقه";
+            }
+           
             if(db.Today(Schedule.Exercise_FK, DateTime.Now))
             {
                 view.FindViewById<TextView>(Resource.Id.lblNameExersice).SetTextColor(Android.Graphics.Color.DarkGreen);

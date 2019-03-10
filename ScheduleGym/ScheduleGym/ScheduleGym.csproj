@@ -69,6 +69,7 @@
     <Compile Include="Exercise.cs" />
     <Compile Include="ExerciseActivity.cs" />
     <Compile Include="ExersiceGroupActivity.cs" />
+    <Compile Include="HistoryDayActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PerDayActivity.cs" />
     <Compile Include="PerExerciseActivity.cs" />
@@ -169,6 +170,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\PerExerciselayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\HistoryDaylayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

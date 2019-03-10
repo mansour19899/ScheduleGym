@@ -76,7 +76,7 @@ namespace ScheduleGym
         {
             if(txtWeight.Text != "")
             {
-                if (db.Today(schedule.Exercise_FK, DateTime.Today))
+                if (db.Today(schedule.Exercise_FK, DateTime.Now))
                 {
                     var date = DateTime.Today.ToShortDateString();
                     var y = db.GiveMe(schedule.Exercise_FK);            
@@ -84,7 +84,7 @@ namespace ScheduleGym
                     y.weight = Convert.ToDecimal(txtWeight.Text);
                     if (u == date)
                     {
-                        y.Date = DateTime.Today;                     
+                        y.Date = DateTime.Now;                     
                         db.UpdateRegisterDay(y);
                         Toast.MakeText(this, "تغییر یافت", ToastLength.Long).Show();
                         var intent = new Intent(this, typeof(PerDayActivity));

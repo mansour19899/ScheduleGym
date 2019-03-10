@@ -22,6 +22,7 @@ namespace ScheduleGym
         private Button btnAdd;
         private Button btnAddWeight;
         private Button btnBack;
+        private Button btnHistoryDay;
         WeightRepository db;
 
 
@@ -37,6 +38,7 @@ namespace ScheduleGym
             btnAdd = FindViewById<Button>(Resource.Id.btnAdd);
             btnAddWeight = FindViewById<Button>(Resource.Id.btnAddWeight);
             btnBack = FindViewById<Button>(Resource.Id.btnBack);
+            btnHistoryDay = FindViewById<Button>(Resource.Id.btnHistoryDay);
             txtAddWeight = FindViewById<EditText>(Resource.Id.txtAddWeight);
 
 
@@ -47,7 +49,13 @@ namespace ScheduleGym
             btnAdd.Click += BtnAdd_Click;
             btnAddWeight.Click += BtnAddWeight_Click;
             btnBack.Click += BtnBack_Click;
+            btnHistoryDay.Click += BtnHistoryDay_Click;
             // Create your application here
+        }
+
+        private void BtnHistoryDay_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(HistoryDayActivity));
         }
 
         private void BtnBack_Click(object sender, EventArgs e)

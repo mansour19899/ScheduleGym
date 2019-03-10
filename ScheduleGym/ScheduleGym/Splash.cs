@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace ScheduleGym
 {
-    [Activity(Label = "Splash", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true,NoHistory =true)]
+    [Activity(Label = "MyGym", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true,NoHistory =true)]
     public class Splash : Activity
     {
         exerciseRepository db;
@@ -118,7 +118,7 @@ namespace ScheduleGym
             db.InsertExercise(new Exercise() { Id = 74, type = 2, name = "نشر از جلو با دمبل", cardio = false, IsExercise = true });
             db.InsertExercise(new Exercise() { Id = 75, type = 2, name = "نشر از جانب ایستاده با سیم کش", cardio = false, IsExercise = true });
             db.InsertExercise(new Exercise() { Id = 76, type = 2, name = "پرس سرشانه نشسته با دمبل", cardio = false, IsExercise = true });
-
+            db.InsertExercise(new Exercise() { Id = 77, type = 2, name = "سرشانه ایستاده با هالتر از جلو", cardio = false, IsExercise = true });
 
             db.InsertExercise(new Exercise() { Id = 80, type = 3, name = "دوسر بازو", cardio = false, IsExercise = false });
             db.InsertExercise(new Exercise() { Id = 81, type = 3, name = "جلو بازو دمبل بر روی میز شیبدار", cardio = false, IsExercise = true });
@@ -141,6 +141,8 @@ namespace ScheduleGym
             db.InsertExercise(new Exercise() { Id = 98, type = 3, name = "جلو بازو سیم کش جفت دست (صلیبی)", cardio = false, IsExercise = true });
             db.InsertExercise(new Exercise() { Id = 99, type = 3, name = "جلو بازو هالتر مچ برعکس", cardio = false, IsExercise = true });
             db.InsertExercise(new Exercise() { Id = 100, type = 3, name = "جلو بازو دمبل متناوب", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 101, type = 3, name = "جلو بازو دمبل دمبل تک تک چکشی", cardio = false, IsExercise = true });
+
 
             db.InsertExercise(new Exercise() { Id = 110, type = 4, name = "سه سر پشت بازو", cardio = false, IsExercise = false });
             db.InsertExercise(new Exercise() { Id = 111, type = 4, name = "پشت بازو هالتر نشسته از پشت سر", cardio = false, IsExercise = true });
@@ -246,6 +248,8 @@ namespace ScheduleGym
             db.InsertExercise(new Exercise() { Id = 260, type = 12, name = "ساعد", cardio = false, IsExercise = false });
             db.InsertExercise(new Exercise() { Id = 261, type = 12, name = "ساعد ایستاده با هالتر از پشت", cardio = false, IsExercise = true });
             db.InsertExercise(new Exercise() { Id = 262, type = 12, name = "ساعد با هالتر نشسته", cardio = false, IsExercise = true });
+            db.InsertExercise(new Exercise() { Id = 263, type = 12, name = "مچ", cardio = false, IsExercise = true });
+
 
             db.InsertExercise(new Exercise() { Id = 270, type = 13, name = "شکم", cardio = false, IsExercise = false });
             db.InsertExercise(new Exercise() { Id = 271, type = 13, name = "بالا آوردن موربی زانو در حالت آویزان", cardio = false, IsExercise = true });

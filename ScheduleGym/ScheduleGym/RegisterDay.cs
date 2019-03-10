@@ -136,7 +136,10 @@ namespace ScheduleGym
             }
         }
 
-
+        public List<RegisterDay> GetLatestRegisterDay(int take)
+        {
+            return db.Table<RegisterDay>().OrderByDescending(p=>p.Id).Take(take).ToList();
+        }
 
         public bool HaveAnyRegisterDay()
         {
